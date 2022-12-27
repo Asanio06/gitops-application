@@ -31,4 +31,4 @@ jobs:
         token: ${{ secrets.ACTIONS_PAT }}
         repository: ${{ github.actor }}/gitops-config
         event-type: new-image
-        client-payload: '{"image": "${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}"}'
+        client-payload: '{"image": "asanio06/${{ env.IMAGE_NAME }}:${{ github.run_number }}"}'
