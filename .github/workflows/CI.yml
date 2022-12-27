@@ -23,12 +23,12 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
+        tags: asanio06/${{ env.IMAGE_NAME }}:${{ github.run_number }}
 
     - name: Repository Dispatch
       uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{ secrets.ACTIONS_PAT }}
-        repository: ${{ github.actor }}/argocd-node-app-config
+        repository: ${{ github.actor }}/gitops-config
         event-type: new-image
-        client-payload: '{"image": "${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}"}'
+        client-payload: '{"image": "asanio06/${{ env.IMAGE_NAME }}:${{ github.run_number }}"}'
