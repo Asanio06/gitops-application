@@ -19,13 +19,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: display
+    - name: displayBranch
       if: ${{ github.ref_type == 'branch' }}
       run: |
         - echo "${{ github.sha }}"
         - echo "IMAGE_TAG=${{ github.sha }}" >> $GITHUB_ENV
 
-    - name: display
+    - name: displayTag
       if: ${{ github.ref_type == 'tag' }}
       run: |
         - echo echo "${{ github.ref_name }}"
