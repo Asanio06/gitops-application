@@ -31,7 +31,7 @@ jobs:
         echo echo "${{ github.ref_name }}"
         echo "IMAGE_TAG=${{ github.ref_name }}" >> $GITHUB_ENV
 
-    - name: is release
+    - name: Is release
       run: |
         echo "IS_RELEASE=${{ github.ref_type == 'tag'  }}" >> $GITHUB_ENV
 
