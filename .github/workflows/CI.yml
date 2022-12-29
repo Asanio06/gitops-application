@@ -1,9 +1,14 @@
 name: CI
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - develop
+
 env:
   IMAGE_NAME: examplenode-dev
+  DOCKER_HUB_USER: asanio06
   
 jobs:
   build:
@@ -23,7 +28,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: asanio06/${{ env.IMAGE_NAME }}:${{ github.run_number }}
+        tags: ${{ env.DOCKER_HUB_USER }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
 
     - name: Repository Dispatch
       uses: peter-evans/repository-dispatch@v1
