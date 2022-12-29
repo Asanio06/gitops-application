@@ -22,14 +22,14 @@ jobs:
     - name: displayBranch
       if: ${{ github.ref_type == 'branch' }}
       run: |
-        - echo "${{ github.sha }}"
-        - echo "IMAGE_TAG=${{ github.sha }}" >> $GITHUB_ENV
+        echo "${{ github.sha }}"
+        echo "IMAGE_TAG=${{ github.sha }}" >> $GITHUB_ENV
 
     - name: displayTag
       if: ${{ github.ref_type == 'tag' }}
       run: |
-        - echo echo "${{ github.ref_name }}"
-        - echo "IMAGE_TAG=${{ github.ref_name }}" >> $GITHUB_ENV
+        echo echo "${{ github.ref_name }}"
+        echo "IMAGE_TAG=${{ github.ref_name }}" >> $GITHUB_ENV
 
     - name: Login to DockerHub
       uses: docker/login-action@v1
