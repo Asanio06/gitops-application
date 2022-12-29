@@ -49,6 +49,14 @@ jobs:
         push: true
         tags: ${{ env.DOCKER_HUB_USER }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
 
+    - name: Build and push
+      uses: docker/build-push-action@v3
+      if: ${{ github.ref_type == 'tag' }}
+      with:
+        context: .
+        push: true
+        tags: ${{ env.DOCKER_HUB_USER }}/${{ env.IMAGE_NAME }}:latest
+
     - name: Repository Dispatch
       uses: peter-evans/repository-dispatch@v1
       with:
