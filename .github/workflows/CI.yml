@@ -22,13 +22,13 @@ jobs:
     - name: display
       if: ${{ github.ref_type == 'branch' }}
       run: |
-        - echo ${{ github.sha }}
+        - echo "${{ github.sha }}"
         - echo "IMAGE_TAG=${{ github.sha }}" >> $GITHUB_ENV
 
     - name: display
       if: ${{ github.ref_type == 'tag' }}
       run: |
-        - echo echo ${{ github.ref_name }}
+        - echo echo "${{ github.ref_name }}"
         - echo "IMAGE_TAG=${{ github.ref_name }}" >> $GITHUB_ENV
 
     - name: Login to DockerHub
